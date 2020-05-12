@@ -1,2 +1,0 @@
-use admin
-sh.addShard( "rs0/mongo-rs0-1:5001,mongo-rs0-2:5002,mongo-rs0-3:5003")

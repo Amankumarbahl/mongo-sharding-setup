@@ -8,9 +8,9 @@ echo ************************************
 
 mongo mongo-rs0-1:27017 rs0Setup.js
 
-sleep 30 | echo Sleeping1 30
+sleep 120 | echo Sleeping1 120
 
-# mongo --host `mongo mongo-rs0-1:27017 --quiet --eval "db.isMaster()['primary']"` dbSetup.js
+mongo --host rs0/mongo-rs0-1:27017,mongo-rs0-2:27018,mongo-rs0-2:27019 --eval "db.isMaster()"
 
 #!/bin/sh
 echo ************************************
@@ -36,7 +36,7 @@ echo Starting local mongos
 echo ************************************
 
 
-mongos --configdb rsc/mongo-rsc-1:27018,mongo-rsc-2:27018,mongo-rsc-3:27019  --bind_ip 0.0.0.0 --fork --logpath /var/tmp/mongodb.log
+mongos --configdb rsc/mongo-rsc-1:27018,mongo-rsc-2:27018,mongo-rsc-3:27019  --bind_ip 0.0.0.0 --fork --logpath /var/tmp/mongodb.log -vvvvv
 
 sleep 120 | echo Sleeping4 120
 
@@ -55,6 +55,8 @@ echo ************************************
 mongo mongo-rs1-1:27017 rs1Setup.js
 
 sleep 120 | echo Sleeping6 120
+
+mongo --host rs1/mongo-rs1-1:27017,mongo-rs1-2:27018,mongo-rs1-2:27019 --eval "db.isMaster()"
 
 echo ************************************
 echo Add second replica set as a shard

@@ -8,4 +8,4 @@ COPY ./mongo.conf .
 EXPOSE 27017
 
 # CMD Instruction
-CMD ["--config", "./mongo.conf"]
+CMD ["--config", "./mongo.conf","-v"]

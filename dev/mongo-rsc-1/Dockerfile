@@ -1,8 +1,5 @@
 FROM mongo
 
-# Working config directory
-WORKDIR /usr/src/configs
-
 COPY ./mongo.conf .
 
 EXPOSE 27017
