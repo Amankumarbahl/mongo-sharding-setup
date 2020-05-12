@@ -1,8 +1,5 @@
 # MongoDB sharding Setup
 
-This is inspired from [I'm an inline-style link](https://www.google.com)
-
-
 Simple MongoDB sharding setup with each shard having its own replica set. Configuration and docker setup is inspired from [mongo-replica-set](https://github.com/frontalnh/mongodb-replica-set)
 
 In order to horizontally scale in MongoDB, you need a set of a shards each having their own replica for high availibility.
@@ -64,7 +61,7 @@ If you have Err: **direnv: error .envrc is blocked** Run `direnv allow` to appro
 ```bash
 direnv allow
 ```
-
+## Implementation and usage details
 This project runs Nine docker containers for mongo replica sets (two sharded servers and one configuration server).
 This project also runs a mongos container for illusting the following(with a timeout of 2 minutes, after each command):
 1. Starting first replica Set
